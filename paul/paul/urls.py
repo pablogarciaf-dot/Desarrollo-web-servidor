@@ -9,4 +9,5 @@ urlpatterns = [
     # Cada app tiene su propio urls.py con su namespace (app_name)
     path('escaparate/', include('escaparate.urls')),
     path('calendario/', include('calendario.urls')),
+    path('tres-en-raya/', include('tres_en_raya.urls')),
 ]

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tres en raya{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/tres_en_raya.css' %}">
+{% endblock %}
+
+{% block encabezado %}Tres en raya{% endblock %}
+
+{% block content %}
+<section class="tarjeta juego">
+    <p class="mensaje-juego{% if terminado %} fin{% endif %}">{{ mensaje }}</p>
+
+    {% if not terminado %}
+        <form class="tablero" action="{% url 'tres_en_raya:tres_en_raya' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="tablero" value="{{ tablero_texto }}">
+            <input type="hidden" name="turno" value="{{ turno }}">
+            {% for casilla in tablero %}
+                <button class="casilla casilla-{{ casilla }}" type="submit" name="posicion" value="{{ forloop.counter0 }}"
+                        {% if casilla != '-' %}disabled{% endif %}>
+                    {% if casilla != '-' %}{{ casilla }}{% endif %}
+                </button>
+            {% endfor %}
+        </form>
+    {% else %}
+        <!-- Cuando termina la partida mostramos el tablero final sin poder pulsarlo -->
+        <div class="tablero">
+            {% for casilla in tablero %}
+                <div class="casilla casilla-{{ casilla }}">{% if casilla != '-' %}{{ casilla }}{% endif %}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <a class="boton" href="{% url 'tres_en_raya:tres_en_raya' %}">Nueva partida</a>
+</section>
+{% endblock %}
