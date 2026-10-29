@@ -1,5 +1,12 @@
-<h1> bienvenido </h1>
+{% extends 'base.html' %}
 
-<nav>
-    <a href="/">Volver a la Homepage</a>
-</nav>
+{% block title %}Escaparate{% endblock %}
+
+{% block encabezado %}Escaparate{% endblock %}
+
+{% block content %}
+<section class="tarjeta">
+    <p>Aquí iré subiendo las cosas que haga. De momento hay poco, pero poco a poco iré añadiendo más.</p>
+    <a class="boton" href="{% url 'homepage' %}">Volver al inicio</a>
+</section>
+{% endblock %}

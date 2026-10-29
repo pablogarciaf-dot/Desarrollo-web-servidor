@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Fecha no válida{% endblock %}
+
+{% block encabezado %}Fecha no válida{% endblock %}
+
+{% block content %}
+<section class="tarjeta">
+    <p class="aviso aviso-error">"{{ fecha }}" no es una fecha válida.</p>
+    <p>Tiene que tener el formato DD-MM-AAAA y ser una fecha que exista, por ejemplo <code>/calendario/25-12-2026</code>.</p>
+    <a class="boton" href="{% url 'calendario:hoy' %}">Ver la fecha de hoy</a>
+</section>
+{% endblock %}

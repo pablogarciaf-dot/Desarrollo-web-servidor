@@ -1,29 +1,13 @@
-<!DOCTYPE html>
-{% load static %} <!-- Esta línea le dice a Django que usaremos la carpeta static -->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage de Paul</title>
-    
-    <!-- Esta línea le dice a Django que busque el archivo style.css en tu carpeta static/css -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <header>
-        <h1>¡Hola Mundo! Bienvenido a mi proyecto.</h1>
-    </header>
-    
-    <main>
-        <p>Esta es mi nueva página de inicio configurada con HTML.</p>
-        <nav>
-            <a href="/escaparate/">Ir al Escaparate</a>
-        </nav>
-        <!-- Ejemplo de cómo añadiremos una imagen más adelante -->
-        <!-- <img src="{% static 'images/foto.jpg' %}" alt="Foto de prueba"> -->
-    </main>
+{% extends 'base.html' %}
 
-    <!-- Ejemplo de cómo añadiremos javascript más adelante -->
-    <script src="{% static 'js/main.js' %}"></script>
-</body>
-</html>
+{% block title %}Inicio{% endblock %}
+
+{% block encabezado %}Hola, soy Paul{% endblock %}
+
+{% block content %}
+<section class="tarjeta">
+    <p>Esta es mi web. La estoy haciendo con Django mientras aprendo, así que irá cambiando con el tiempo.</p>
+    <p>Puedes ver lo que llevo hecho en el escaparate o escribirme desde contacto.</p>
+    <a class="boton" href="{% url 'escaparate:homepage' %}">Ir al escaparate</a>
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Inicio{% endblock %} - Paul</title>
+
+    <!-- CSS común a todas las páginas -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- CSS extra que puede añadir cada página -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header class="cabecera">
+        <a class="logo" href="{% url 'homepage' %}">Paul</a>
+        <nav class="menu">
+            <a href="{% url 'homepage' %}">Inicio</a>
+            <a href="{% url 'escaparate:homepage' %}">Escaparate</a>
+            <a href="{% url 'calendario:hoy' %}">Calendario</a>
+            <a href="{% url 'contacto' %}">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="contenido">
+        <h1>{% block encabezado %}{% endblock %}</h1>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="pie">
+        <p>Paul, 2026</p>
+    </footer>
+
+    <!-- JS común a todas las páginas -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- JS extra que puede añadir cada página -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

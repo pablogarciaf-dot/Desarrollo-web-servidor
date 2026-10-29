@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block encabezado %}Contacto{% endblock %}
+
+{% block content %}
+<section class="tarjeta">
+    {% if enviado %}
+        <p class="aviso">Gracias, {{ nombre }}. Me ha llegado tu mensaje y te contesto en cuanto pueda.</p>
+        <a class="boton" href="{% url 'contacto' %}">Mandar otro mensaje</a>
+    {% else %}
+        <p>Si tienes alguna duda o quieres comentarme algo, escríbeme por aquí.</p>
+        <form class="formulario" method="post" action="{% url 'contacto' %}">
+            {% csrf_token %}
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+            <button class="boton" type="submit">Enviar</button>
+        </form>
+    {% endif %}
+</section>
+{% endblock %}

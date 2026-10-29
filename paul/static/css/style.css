@@ -1,0 +1,118 @@
+/* ===== Variables comunes ===== */
+:root {
+    --color-principal: #2b6cb0;
+    --color-principal-oscuro: #234e85;
+    --color-fondo: #f4f6f9;
+    --color-tarjeta: #ffffff;
+    --color-texto: #2d3748;
+    --color-suave: #718096;
+    --radio: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* ===== Cabecera y menú ===== */
+.cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: var(--color-principal);
+}
+.logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+.menu { display: flex; gap: 1.5rem; }
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+}
+.menu a:hover,
+.menu a.activo { border-bottom-color: #fff; }
+
+/* ===== Contenido principal ===== */
+.contenido {
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+.contenido h1 { color: var(--color-principal-oscuro); }
+
+.tarjeta {
+    background: var(--color-tarjeta);
+    padding: 1.5rem;
+    border-radius: var(--radio);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--color-principal);
+    color: #fff;
+    border: none;
+    border-radius: var(--radio);
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.boton:hover { background: var(--color-principal-oscuro); }
+
+/* ===== Formulario ===== */
+.formulario { display: flex; flex-direction: column; gap: 0.4rem; }
+.formulario label { font-weight: 600; margin-top: 0.6rem; }
+.formulario input,
+.formulario textarea {
+    padding: 0.6rem;
+    border: 1px solid #cbd5e0;
+    border-radius: var(--radio);
+    font: inherit;
+}
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: 2px solid var(--color-principal);
+    border-color: transparent;
+}
+.formulario .boton { align-self: flex-start; margin-top: 1rem; }
+
+.aviso {
+    padding: 0.8rem;
+    background: #e6fffa;
+    border-left: 4px solid #38b2ac;
+    border-radius: var(--radio);
+}
+
+/* ===== Pie de página ===== */
+.pie {
+    text-align: center;
+    padding: 1rem;
+    background: #e2e8f0;
+    color: var(--color-suave);
+    font-size: 0.9rem;
+}
+
+.aviso-error {
+    background: #fff5f5;
+    border-left-color: #e53e3e;
+}

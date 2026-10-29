@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Calendario{% endblock %}
+
+{% block encabezado %}Calendario{% endblock %}
+
+{% block content %}
+<section class="tarjeta">
+    <p>Has elegido el {{ dia }} de {{ mes }} del año {{ ano }}. {{ mensaje }}.</p>
+    <p>Para ver otra fecha, cambia la dirección poniendo el día con el formato DD-MM-AAAA, por ejemplo <code>/calendario/25-12-2026</code>.</p>
+    <a class="boton" href="{% url 'calendario:hoy' %}">Volver a hoy</a>
+</section>
+{% endblock %}
